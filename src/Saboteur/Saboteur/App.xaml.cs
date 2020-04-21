@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Saboteur.View;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,13 @@ namespace Saboteur
     /// </summary>
     public partial class App : Application
     {
+        private MainWindow mainWindow;
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            this.mainWindow = new MainWindow();
+            this.mainWindow.Show();
+        }
+
     }
 }
