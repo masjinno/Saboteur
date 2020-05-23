@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rem settingフォルダの中身をビルド先にまるっとコピーする&#xD;&#xA;xcopy &quot;$(ProjectDir)resource\setting&quot; &quot;$(OutDir)setting&quot; /S /E /I /Y&#xD;&#xA;rem imageフォルダの中身をビルド先にまるっとコピーする&#xD;&#xA;xcopy &quot;$(ProjectDir)resource\image&quot; &quot;$(OutDir)image&quot; /S /E /I /Y" />
+  </Target>
 
 </Project>
